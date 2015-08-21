@@ -1,3 +1,36 @@
+/* 2. Put the HTML elements into the right position,color, size etc.   */
+
+
 canvas {
  background:#9c9;
+ border:10px;
+ border-style: solid;
+
  }
+
+ button {
+  border-radius: 10px; 
+
+ }
+
+ #left {
+background:black;
+color: white;
+ }
+
+ #right {
+background:black;
+color: white;
+ }
+
+ #up {
+  background:black;
+color: white;
+  margin-top: 50px;
+ }
+
+#down {
+  background:black;
+color: white;
+  margin-bottom: 50px;
+}
