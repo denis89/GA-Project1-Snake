@@ -40,13 +40,48 @@ function level (won){
   {$("#level").html("Level: "+ level++);}
 }
 
-function snake(){
-  var length = 5;
-  var snakearray = [1];
-  // My snake works, but where is my snake ???
-  console.log(snakearray[0]);
+
+// Why on earth can't I use jQuery on my gameboard ????
+// What the heck is going on here????
+
+var canvas = document.getElementById("gameboard");
+    ctx = canvas.getContext("2d");
+    var w = $("#gameboard").width();
+  var h = $("#gameboard").height();
+
+function Snake() {
+    var length = 10;
+    snake = [];
+    for(var i = length - 1; i >= 0; i--) {
+      snake.push({x: i, y: 100});
+    }
+    ctx.fillStyle = "blue";
+  }
+  
+
+  Snake();
+
+
+function paintSnake(x,y)
+{ var cw =10;
+  ctx.fillStyle="blue";
+  ctx.fillRect(h*cw,w*cw,cw,cw);
+  ctx.strokeStyle="blue";
+  ctx.strokeRect(h*cw, w*cw, cw, cw);
 }
-snake();
+paintSnake(10,10);
+
+//$('gameboard').css('color', 'blue');
+//var snakee = $("#gameboard").//getContext("2d");
+//console.log(snakee);
+//function snake(){
+//  var length = 5;
+//  var snakearray = [1];
+//  // My snake works, but where is my snake ???
+//  console.log(snakearray[0]);
+//}
+//snake();
+
 
 
 //End of document ready.
