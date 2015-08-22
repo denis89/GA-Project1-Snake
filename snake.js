@@ -56,37 +56,39 @@ function level (won){
   var h = $("#gameboard").height();
 
 function Snake() {
-    var length = 3;
+    var length = 30;
     snake = [];
-    for(var i = length - 1; i >= 0; i--) {
-      snake.push({x: i, y: 100});
-    }
+   // This function put the snake on screen, but it is invisible. That's why I have to paint it.
+    
+for (var i = 0; i<=length; i = i+10)
+     snake.push({x: i, y: 100});
   }
-  
-
   Snake();
 
 // My snake gets longer. Actually I'm also a snake. Haha. Well, my horoscope sign.
-function paintSnake(){
+function paintSnake1(x,y){
   ctx.fillStyle = "black";
-  ctx.fillRect(10,10,10,10);
+  ctx.fillRect(x,y,10,10);
   ctx.strokeStyle ="black";
-  ctx.strokeRect(10,10,10,10);
-  ctx.fillStyle = "black";
-  ctx.fillRect(22,10,10,10);
-  ctx.strokeStyle ="black";
-  ctx.strokeRect(22,10,10,10);
+  ctx.strokeRect(x,y,10,10); 
+   paintSnake2(x); 
 }
-paintSnake();
+paintSnake1(10,10);
 
-//function paintSnake(x,y)
-//{ var cw =10;
-//  ctx.fillStyle="blue";
-//  ctx.fillRect(x*cw,y*cw,cw,cw);
-//  ctx.strokeStyle="white";
-//  ctx.strokeRect(x*cw,y*cw,cw,cw)//;
-//}
-//paintSnake(10,10);
+function paintSnake2(x,y){
+  ctx.fillStyle = "black";
+  ctx.fillRect(12+x,y,10,10);
+  ctx.strokeStyle ="black";
+  ctx.strokeRect(12+x,y,10,10);
+}
+paintSnake2(11,10);
+
+// A snake is an array in this file. Just put the start box of the array in to the end box to make the snake move.
+function moveSnake(){
+  // Currently the snake gets longer instead of moving. So I have to put the tail to the front. Maybe there is a hide function.
+   paintSnake1(36,10);
+};
+moveSnake();
 
 //$('gameboard').css('color', 'blue');
 //var snakee = $("#gameboard").//getContext("2d");
