@@ -51,4 +51,12 @@ color: white;
 
 #level {
   text-align: center;
+  position: relative;
+  bottom:50px;
+  right:15%;
+}
+
+#score {
+  position:relative;
+  bottom: 16px;
 }
