@@ -2,29 +2,42 @@
 
 $(document).ready(function(){
 
-
-$("body").keydown(function(e) {
- // Can't distinguish between left and right button at the moment. 
+// Function of the buttons. 
+function button (){$("body").keydown(function(e) {
  
  if (e.which == "37") 
-// {alert("Right");
+  {console.log("left");}
+
+else if (e.which =="39")
   {console.log("right");}
- //{ case "13": alert("Left");
- // console.log("left");break;
- // case "39": alert("Right");
- // console.log("right");break;
 
+else if (e.which =="38")
+  {console.log("up");}
 
+else if (e.which =="40")
+  {console.log("down");}
 
-    
- 
-// else if (e.which === '39') 
-//    {alert("Right");
-//  console.log("right");}
-//}
+else if (e.which =="32")
+  {console.log("pause");}
 
+else if (e.which =="13")
+  {console.log("play!");}
 
 });
+};
+
+button();
+
+function score (won){
+  if (won === true)
+  {$("#score").html("Score: 100");}
+};
+
+function level (won){
+  var level = 1;
+ if (won === true)
+  {$("#level").html("Level: "+ level++);}
+}
 
 
 
