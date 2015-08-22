@@ -66,11 +66,16 @@ function Snake() {
 
   Snake();
 
+// My snake gets longer. Actually I'm also a snake. Haha. Well, my horoscope sign.
 function paintSnake(){
   ctx.fillStyle = "black";
   ctx.fillRect(10,10,10,10);
   ctx.strokeStyle ="black";
   ctx.strokeRect(10,10,10,10);
+  ctx.fillStyle = "black";
+  ctx.fillRect(22,10,10,10);
+  ctx.strokeStyle ="black";
+  ctx.strokeRect(22,10,10,10);
 }
 paintSnake();
 
