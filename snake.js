@@ -3,10 +3,12 @@
 // Then create a snake. But I still can't see it, so I have to paint the snake to make it visible.
 
 // Next step is to make the snake move.
+// Wait a sec. Better to make it longer than 1 dot.
 
 $(document).ready(function(){
 
-// Function of the buttons. 
+// Function of the buttons.
+// keypress() doesn't work. Haha. 
 function button (){$("body").keydown(function(e) {
  
  if (e.which == "37") 
@@ -48,13 +50,13 @@ function level (won){
 // Why on earth can't I use jQuery on my gameboard ????
 // What the heck is going on here????
 
-
+// Strange the gameboard has to be
     var ctx = $("#gameboard")[0].getContext("2d");
     var w = $("#gameboard").width();
   var h = $("#gameboard").height();
 
 function Snake() {
-    var length = 10;
+    var length = 3;
     snake = [];
     for(var i = length - 1; i >= 0; i--) {
       snake.push({x: i, y: 100});
@@ -64,15 +66,22 @@ function Snake() {
 
   Snake();
 
-
-function paintSnake(x,y)
-{ var cw =10;
-  ctx.fillStyle="blue";
-  ctx.fillRect(x*cw,y*cw,cw,cw);
-  ctx.strokeStyle="white";
-  ctx.strokeRect(x*cw,y*cw,cw,cw);
+function paintSnake(){
+  ctx.fillStyle = "black";
+  ctx.fillRect(10,10,10,10);
+  ctx.strokeStyle ="black";
+  ctx.strokeRect(10,10,10,10);
 }
-paintSnake(10,10);
+paintSnake();
+
+//function paintSnake(x,y)
+//{ var cw =10;
+//  ctx.fillStyle="blue";
+//  ctx.fillRect(x*cw,y*cw,cw,cw);
+//  ctx.strokeStyle="white";
+//  ctx.strokeRect(x*cw,y*cw,cw,cw)//;
+//}
+//paintSnake(10,10);
 
 //$('gameboard').css('color', 'blue');
 //var snakee = $("#gameboard").//getContext("2d");
