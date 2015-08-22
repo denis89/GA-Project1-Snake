@@ -3,14 +3,27 @@
 $(document).ready(function(){
 
 
-$("body").keypress(function(e) {
- if (e.which === '13') 
-    {alert("Left");}
-  console.log("left");
+$("body").keydown(function(e) {
+ // Can't distinguish between left and right button at the moment. 
  
- if (e.which === '39') 
-    {alert("Right");}
-  console.log("right");
+ if (e.which == "37") 
+// {alert("Right");
+  {console.log("right");}
+ //{ case "13": alert("Left");
+ // console.log("left");break;
+ // case "39": alert("Right");
+ // console.log("right");break;
+
+
+
+    
+ 
+// else if (e.which === '39') 
+//    {alert("Right");
+//  console.log("right");}
+//}
+
+
 });
 
 
