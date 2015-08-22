@@ -1,4 +1,8 @@
-// Building the right function into the Layout. Starting with the buttons.
+// Building the right function into the Layout. Starting with the buttons. 
+
+// Then create a snake. But I still can't see it, so I have to paint the snake to make it visible.
+
+// Next step is to make the snake move.
 
 $(document).ready(function(){
 
