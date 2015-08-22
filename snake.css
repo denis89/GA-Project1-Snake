@@ -10,11 +10,15 @@ canvas {
 
  button {
   border-radius: 10px; 
+  position:relative;
+
+
 
  }
 
- p{
-  
+ #play{ 
+
+position: relative;
   
  }
 
