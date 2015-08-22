@@ -45,7 +45,7 @@ function level (won){
 // What the heck is going on here????
 
 var canvas = document.getElementById("gameboard");
-    ctx = canvas.getContext("2d");
+    var ctx = canvas.getContext("2d");
     var w = $("#gameboard").width();
   var h = $("#gameboard").height();
 
@@ -55,7 +55,6 @@ function Snake() {
     for(var i = length - 1; i >= 0; i--) {
       snake.push({x: i, y: 100});
     }
-    ctx.fillStyle = "blue";
   }
   
 
@@ -65,9 +64,9 @@ function Snake() {
 function paintSnake(x,y)
 { var cw =10;
   ctx.fillStyle="blue";
-  ctx.fillRect(h*cw,w*cw,cw,cw);
-  ctx.strokeStyle="blue";
-  ctx.strokeRect(h*cw, w*cw, cw, cw);
+  ctx.fillRect(x*cw,y*cw,cw,cw);
+  ctx.strokeStyle="white";
+  ctx.strokeRect(x*cw,y*cw,cw,cw);
 }
 paintSnake(10,10);
 
