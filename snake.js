@@ -25,21 +25,28 @@ else if (e.which =="13")
 
 });
 };
-
 button();
 
+// The score increases the score after the snake could eat a fruit.
 function score (won){
   if (won === true)
   {$("#score").html("Score: 100");}
 };
 
+// The level will increase if the snake is able to eat a certain amount of fruits.
 function level (won){
   var level = 1;
  if (won === true)
   {$("#level").html("Level: "+ level++);}
 }
 
-
+function snake(){
+  var length = 5;
+  var snakearray = [1];
+  // My snake works, but where is my snake ???
+  console.log(snakearray[0]);
+}
+snake();
 
 
 //End of document ready.
