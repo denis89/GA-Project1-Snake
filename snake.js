@@ -44,8 +44,8 @@ function level (won){
 // Why on earth can't I use jQuery on my gameboard ????
 // What the heck is going on here????
 
-var canvas = document.getElementById("gameboard");
-    var ctx = canvas.getContext("2d");
+
+    var ctx = $("#gameboard")[0].getContext("2d");
     var w = $("#gameboard").width();
   var h = $("#gameboard").height();
 
