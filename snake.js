@@ -67,26 +67,32 @@ for (var i = 0; i<=length; i = i+10)
 
 // My snake gets longer. Actually I'm also a snake. Haha. Well, my horoscope sign.
 function paintSnake1(x,y){
+  // 1st cell of the snake.Color black
   ctx.fillStyle = "black";
   ctx.fillRect(x,y,10,10);
-  ctx.strokeStyle ="black";
-  ctx.strokeRect(x,y,10,10); 
-   paintSnake2(x); 
+  ctx.strokeStyle = "black";
+  ctx.strokeRect(x,y,10,10);   
 }
-paintSnake1(10,10);
+paintSnake1(10,10).ctx.fillStyle= "white";
+paintSnake1(10,10).ctx.strokeStyle = "white";
+
+// paintSnake2 ???
 
 function paintSnake2(x,y){
+  // Second Cell of the snake.Color black
   ctx.fillStyle = "black";
   ctx.fillRect(12+x,y,10,10);
-  ctx.strokeStyle ="black";
+  ctx.strokeStyle = "black";
   ctx.strokeRect(12+x,y,10,10);
 }
-paintSnake2(11,10);
+paintSnake2(11,10).ctx.fillStyle= "white";
 
 // A snake is an array in this file. Just put the start box of the array in to the end box to make the snake move.
 function moveSnake(){
   // Currently the snake gets longer instead of moving. So I have to put the tail to the front. Maybe there is a hide function.
-   paintSnake1(36,10);
+  
+
+  // paintSnake1(36,10);
 };
 moveSnake();
 
