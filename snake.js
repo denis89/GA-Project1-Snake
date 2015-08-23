@@ -78,31 +78,42 @@ paintSnake1(10,10,"black");
 
 // paintSnake2 ???
 
-function paintSnake2(x,y){
+function paintSnake2(x,y,color){
   // Second Cell of the snake.Color black
-  ctx.fillStyle = "black";
+  ctx.fillStyle = color;
   ctx.fillRect(12+x,y,10,10);
-  ctx.strokeStyle = "black";
+  ctx.strokeStyle = color;
   ctx.strokeRect(12+x,y,10,10);
 }
-paintSnake2(11,10);
+paintSnake2(11,10,"black");
 
 //paintSnake2(0);
 
 // A snake is an array in this file. Just put the start box of the array in to the end box to make the snake move.
-function moveSnake(){
-  // Currently the snake gets longer instead of moving. So I have to put the tail to the front. Maybe there is a hide function.
-  // For the first time:callback.
-setTimeout(function(){paintSnake1(10,10,"#9c9")},1000);
+
+function moveSnake1(x,y){
+setTimeout(function(){paintSnake1(x,y,"#9c9")},500);
 //paintSnake1.hide();
 // setTimeout?
-setTimeout(function(){paintSnake1(36,10,"black")},2000);
+setTimeout(function(){paintSnake1(x+26,y,"black")},1000);
 //callbacks.fire(10,10, "black");
-console.log("Move snake");
   // paintSnake1(36,10);
 };
-moveSnake();
+//moveSnake1(10,10);
 
+function moveSnake2(x,y){
+  setTimeout(function(){paintSnake2(x,y,"#9c9")},1500);
+  setTimeout(function(){paintSnake2(x+26,y,"black")},2000);
+};
+//moveSnake2(11,10);
+
+function moveForward(){
+for (var i=10, i<460, i=i+10){
+  moveSnake1(i,i);
+  moveSnake2(i+1,i);
+};
+};
+moveForward();
 //$('gameboard').css('color', 'blue');
 //var snakee = $("#gameboard").//getContext("2d");
 //console.log(snakee);
