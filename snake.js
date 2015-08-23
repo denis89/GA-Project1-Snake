@@ -108,10 +108,16 @@ function moveSnake2(x,y){
 //moveSnake2(11,10);
 
 function moveForward(){
-for (var i=10, i<460, i=i+10){
-  moveSnake1(i,i);
-  moveSnake2(i+1,i);
-};
+//for (var i=10; i < 460; i=i+10){
+  var i=10;
+  moveSnake1(i,10);
+  moveSnake2(i+1,10);
+  i = i+10;
+moveSnake1(i,10);
+  moveSnake2(i+1,10);
+  
+  
+//};
 };
 moveForward();
 //$('gameboard').css('color', 'blue');
