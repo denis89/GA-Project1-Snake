@@ -73,7 +73,7 @@ function paintSnake1(x,y,color){
   ctx.strokeStyle = color;
   ctx.strokeRect(x,y,10,10);   
 }
-paintSnake1(10,10,"white");
+paintSnake1(10,10,"black");
 //paintSnake1(10,10).ctx.fillsStyle= "white";
 
 // paintSnake2 ???
@@ -93,9 +93,10 @@ paintSnake2(11,10);
 function moveSnake(){
   // Currently the snake gets longer instead of moving. So I have to put the tail to the front. Maybe there is a hide function.
   // For the first time:callback.
-paintSnake1(10,10,"#9c9");
+setTimeout(function(){paintSnake1(10,10,"#9c9")},1000);
+//paintSnake1.hide();
 // setTimeout?
-paintSnake1(36,10,"black");
+setTimeout(function(){paintSnake1(36,10,"black")},2000);
 //callbacks.fire(10,10, "black");
 console.log("Move snake");
   // paintSnake1(36,10);
