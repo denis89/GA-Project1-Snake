@@ -109,16 +109,30 @@ function moveSnake2(x,y){
 
 function moveForward(){
 //for (var i=10; i < 460; i=i+10){
-  var i=10;
+  //do {
+    var i=10;
   moveSnake1(i,10);
   moveSnake2(i+1,10);
-  i = i+10;
-moveSnake1(i,10);
-  moveSnake2(i+1,10);
+ 
+  i = i+13;
+ setTimeout(function(){moveSnake1(i,10);
+  moveSnake2(i+1,10);},2000); 
   
+  i = i+13;
+  setTimeout(function(){moveSnake1(i,10);
+   moveSnake2(i+1,10);},3000);
+
+    i = i+13;
+  setTimeout(function(){moveSnake1(i,10);
+   moveSnake2(i+1,10);},7000); 
+  
+
+
+  };
+  //while (i < 460);
   
 //};
-};
+//};
 moveForward();
 //$('gameboard').css('color', 'blue');
 //var snakee = $("#gameboard").//getContext("2d");
