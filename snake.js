@@ -115,16 +115,24 @@ function moveForward(){
   moveSnake2(i+1,10);
  
   i = i+13;
- setTimeout(function(){moveSnake1(i,10);
-  moveSnake2(i+1,10);},2000); 
-  
-  i = i+13;
-  setTimeout(function(){moveSnake1(i,10);
-   moveSnake2(i+1,10);},3000);
+  console.log(i);
+  //moveSnake1(i,10);
+ setTimeout(function(){
+  moveSnake2(i+1,10);},2000);
 
-    i = i+13;
-  setTimeout(function(){moveSnake1(i,10);
-   moveSnake2(i+1,10);},7000); 
+   
+  
+//  i = i+13;
+//  console.log(i);
+//  setTimeout(function(){//moveSnake1(i,10);
+//   moveSnake2(i+1,10);},3000);
+//
+//    i = i+13;
+//    console.log(i);
+//  setTimeout(function(){
+//    moveSnake1(i,10);
+//   moveSnake2(i+1,10);
+//    },10000); 
   
 
 
