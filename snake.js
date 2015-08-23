@@ -106,30 +106,38 @@ function moveSnake2(x,y){
   setTimeout(function(){paintSnake2(x+26,y,"black")},2000);
 };
 //moveSnake2(11,10);
-
+var time = 2000;
+var i=10;
 function moveForward(){
 //for (var i=10; i < 460; i=i+10){
   //do {
     // 1. Paint 1st and 2nd cell at the same time.
     //2. Delete 1st cell and put it to 3rd cell with moveSnake1.
     //3. Delete 2nd cell and put it to 4th cell with moveSnake2.
-    var i=10;
+    
+   
   moveSnake1(i,10);
   moveSnake2(i+1,10);
-  setTimeout(function(){
+  
+  moveForward2();
+ 
+  time = time + 2000;
+  moveForward2();
+ 
+ time = time + 2000;
+  moveForward2();
+    };
+moveForward();
+
+function moveForward2(){
+setTimeout(function(time){
 // 4. Delete 3rd cell-> 5th cell with moveSnake1.
-// 5. Delete 4th cell - 6th cell with moveSnake2.
-    moveSnake1(36,10);
-    moveSnake2(37,10);
-    },2000);
-  setTimeout(function(){
-    moveSnake1(62,10);
-    moveSnake2(63,10);
-    },4000);
-  setTimeout(function(){
-    moveSnake1(88,10);
-    moveSnake2(89,10);
-    },6000);
+// 5. Delete 4th cell - 6th cell with moveSnake2. 
+    i = i+ 26;
+    moveSnake1(i,10);
+    moveSnake2(i+1,10);
+    },time);
+};
   //setTimeout(function(){
   //moveSnake2(37,10); },2000);
 
@@ -153,12 +161,12 @@ function moveForward(){
   
 
 
-  };
+
   //while (i < 460);
   
 //};
 //};
-moveForward();
+
 //$('gameboard').css('color', 'blue');
 //var snakee = $("#gameboard").//getContext("2d");
 //console.log(snakee);
