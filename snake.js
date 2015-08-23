@@ -73,8 +73,8 @@ function paintSnake1(x,y){
   ctx.strokeStyle = "black";
   ctx.strokeRect(x,y,10,10);   
 }
-paintSnake1(10,10).ctx.fillStyle= "white";
-paintSnake1(10,10).ctx.strokeStyle = "white";
+paintSnake1(10,10);
+//paintSnake1(10,10).ctx.fillsStyle= "white";
 
 // paintSnake2 ???
 
@@ -85,13 +85,15 @@ function paintSnake2(x,y){
   ctx.strokeStyle = "black";
   ctx.strokeRect(12+x,y,10,10);
 }
-paintSnake2(11,10).ctx.fillStyle= "white";
+paintSnake2(11,10);
+
+//paintSnake2(0);
 
 // A snake is an array in this file. Just put the start box of the array in to the end box to make the snake move.
 function moveSnake(){
   // Currently the snake gets longer instead of moving. So I have to put the tail to the front. Maybe there is a hide function.
   
-
+paintSnake1(10,10).ctx.fillsStyle= "white";
   // paintSnake1(36,10);
 };
 moveSnake();
