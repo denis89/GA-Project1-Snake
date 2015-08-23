@@ -50,7 +50,7 @@ function level (won){
 // Why on earth can't I use jQuery on my gameboard ????
 // What the heck is going on here????
 
-// Strange the gameboard has to be
+// That's weird. The gameboard has to be an object.
     var ctx = $("#gameboard")[0].getContext("2d");
     var w = $("#gameboard").width();
   var h = $("#gameboard").height();
@@ -66,14 +66,14 @@ for (var i = 0; i<=length; i = i+10)
   Snake();
 
 // My snake gets longer. Actually I'm also a snake. Haha. Well, my horoscope sign.
-function paintSnake1(x,y){
+function paintSnake1(x,y,color){
   // 1st cell of the snake.Color black
-  ctx.fillStyle = "black";
+  ctx.fillStyle = color;
   ctx.fillRect(x,y,10,10);
-  ctx.strokeStyle = "black";
+  ctx.strokeStyle = color;
   ctx.strokeRect(x,y,10,10);   
 }
-paintSnake1(10,10);
+paintSnake1(10,10,"white");
 //paintSnake1(10,10).ctx.fillsStyle= "white";
 
 // paintSnake2 ???
@@ -92,8 +92,12 @@ paintSnake2(11,10);
 // A snake is an array in this file. Just put the start box of the array in to the end box to make the snake move.
 function moveSnake(){
   // Currently the snake gets longer instead of moving. So I have to put the tail to the front. Maybe there is a hide function.
-  
-paintSnake1(10,10).ctx.fillsStyle= "white";
+  // For the first time:callback.
+paintSnake1(10,10,"#9c9");
+// setTimeout?
+paintSnake1(36,10,"black");
+//callbacks.fire(10,10, "black");
+console.log("Move snake");
   // paintSnake1(36,10);
 };
 moveSnake();
