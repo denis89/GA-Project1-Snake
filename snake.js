@@ -10,18 +10,26 @@ $(document).ready(function(){
 
 // Function of the buttons.
 // keypress() doesn't work. Haha. 
+// That's weird. The gameboard has to be an object.
+    var ctx = $("#gameboard")[0].getContext("2d");
+    var w = $("#gameboard").width();
+  var h = $("#gameboard").height();
 
 
 function stopForward(){
-  var moveF= setTimeout(moveForward(),0);
-  clearTimeout(moveF);
-  console.log("Stop");
+  
+    setInterval(ctx.clearRect( 0, 0, $("#gameboard")[0].width, $("#gameboard")[0].height),1000);
+//if (1===1){
+//return break;}
+  //var moveF= setTimeout(moveForward,0);
+  //clearTimeout(moveF);
+  //console.log("Stop");
   //moveForward();
   //break;
 };
 
 function stopRight(){
-  var moveF= setTimeout(moveRight(),0);
+  var moveF= setTimeout(moveRight,0);
   clearTimeout(moveF);
   console.log("Stop");
   //moveForward();
@@ -38,12 +46,14 @@ function button (){
 
     else if (e.which =="39"){
       console.log("right");
-      stopRight();
+     setTimeout(moveForward(),500);
+      moveRight();
     }
     
     else if (e.which =="38")
       {console.log("forward");
-  stopForward();}
+      moveForward();}
+      //moveRight();}
     
     else if (e.which =="40")
       {console.log("down");}
@@ -75,10 +85,7 @@ function level (won){
 // Why on earth can't I use jQuery on my gameboard ????
 // What the heck is going on here????
 
-// That's weird. The gameboard has to be an object.
-    var ctx = $("#gameboard")[0].getContext("2d");
-    var w = $("#gameboard").width();
-  var h = $("#gameboard").height();
+
 
 function Snake() {
   var length = 30;
@@ -135,18 +142,18 @@ function moveSnaker1(x,y){
 
 
 function moveSnakef1(x,y){
-setTimeout(function(){paintSnake1(x,y,"#9c9")},500);
+setTimeout(function(){paintSnake1(x,y,"#9c9")},200);
 //paintSnake1.hide();
 // setTimeout?
-setTimeout(function(){paintSnake1(x+26,y,"black")},1000);
+setTimeout(function(){paintSnake1(x+26,y,"black")},400);
 //callbacks.fire(10,10, "black");
   // paintSnake1(36,10);
 };
 //moveSnakef1(10,10);
 
 function moveSnakef2(x,y){
-  setTimeout(function(){paintSnake2(x,y,"#9c9")},1500);
-  setTimeout(function(){paintSnake2(x+26,y,"black")},2000);
+  setTimeout(function(){paintSnake2(x,y,"#9c9")},600);
+  setTimeout(function(){paintSnake2(x+26,y,"black")},800);
 };
 
 function moveSnaker2(x,y){
@@ -184,7 +191,6 @@ var countx = 10;
 //moveSnakef2(11,10);
 
 function moveForward(){
-  console.log("move");
 //for (var i=10; i < 460; i=i+10){
   //do {
     // 1. Paint 1st and 2nd cell at the same time.
@@ -194,22 +200,23 @@ function moveForward(){
   moveSnakef2(i+1,10);
  
   var countx = 10;
-  console.log(countx); 
-  moveForward2();
+  //moveForward2();
  
- for (var z=0; z<14;z++){
-  time = time + 2000;
-  moveForward2();
-
-  countx = countx + 26;
-  //////Wall condition/////////
-if ( countx === 374) {
-  console.log("Game Over");
+// for (var z=0; z<14;z++){
+//  time = time + 2000;
+//  moveForward2();
+//
+//  countx = countx + 26;
+//  //////Wall condition/////////
+//  
+//     if ( countx === 374) {
+//    console.log("Game Over");
  
-};
- };
+//};
+// };
  // End function.
     };
+    //moveForward();
 
 
 function moveForward2(){
