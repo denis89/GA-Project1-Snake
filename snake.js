@@ -15,30 +15,9 @@ $(document).ready(function(){
     var w = $("#gameboard").width();
   var h = $("#gameboard").height();
   var time = 2000;
-var i=10;
-var j = 23;
+var x=10;
+var y = 23;
 
-
-//function stopForward(){
-//  
-//    setInterval(ctx.clearRect( 0, 0, $("#gameboard")[0].width, $("#gameboard")[0].h//eight),1000);
-////if (1===1){
-////return break;}
-//  //var moveF= setTimeout(moveForward,0);
-//  //clearTimeout(moveF);
-//  //console.log("Stop");
-//  //moveForward();
-//  //break;
-//};
-//
-//function stopRight(){
-//  var moveF= setTimeout(moveRight,0);
-//  clearTimeout(moveF);
-//  console.log("Stop");
-//  //moveForward();
-//  //break;
-//};
-// console.log(clearTimeout(setTimeout(moveForward(),0)));
 function button (){
 
   $("body").keydown(function(e) {
@@ -86,32 +65,40 @@ function level (won){
 }
 
 
-// Why on earth can't I use jQuery on my gameboard ????
-// What the heck is going on here????
-
-
-
-function Snake() {
-  var length = 30;
-  snake = [];
-   // This function put the snake on screen, but it is invisible. That's why I have to paint it.
-    
-  for (var i = 0; i<=length; i = i+10)
-    snake.push({x: i, y: 100});
-  }
-  Snake();
-
-// My snake gets longer. Actually I'm also a snake. Haha. Well, my horoscope sign.
 function paintSnake(x,y,color){
   // 1st cell of the snake.Color black
   ctx.fillStyle = color;
   ctx.fillRect(x,y,10,10);
+
   //ctx.strokeStyle = color;
   //ctx.strokeRect(x,y,10,10);  
  // return x; 
 }
 paintSnake(10,10,"black");
 paintSnake(21,10,"black");
+
+function moveForward(){
+//for (var i=10; i < 460; i=i+10){
+  //do {
+    // 1. Paint 1st and 2nd cell at the same time.
+    //2. Delete 1st cell and put it to 3rd cell with moveSnakef1.
+    //3. Delete 2nd cell and put it to 4th cell with moveSnakef2.  
+  paintSnake(x,10,"#9c9");
+  paintSnake(x+13,10,"black");
+ x = x +13;
+     };
+
+function changeRight(){
+//for (var i=10; i < 460; i=i+10){
+  //do {
+    // 1. Paint 1st and 2nd cell at the same time.
+    //2. Delete 1st cell and put it to 3rd cell with moveSnakef1.
+    //3. Delete 2nd cell and put it to 4th cell with moveSnakef2.  
+  paintSnake(x+13,10,"#9c9");
+  paintSnake(x,y+13,"black");
+ y = y +13;
+     };
+     //moveForward();
 //paintSnake1(23,23,"black");
 //paintSnake1(23,49,"black");
 
@@ -136,79 +123,71 @@ paintSnake(21,10,"black");
 //paintSnake2(0);
 
 // A snake is an array in this file. Just put the start box of the array in to the end box to make the snake move.
-function moveSnaker1(x,y){
-  //setTimeout(function(){paintSnake1(x+13,y,"#9c9")},200);
-  setTimeout(function(){paintSnake2(x+26,y,"#9c9")},800);
- setTimeout(function(){ paintSnake1(x+26,y+13,"black")},400);
- //paintSnake1(23,23,"#9c9");
-    //paintSnake1(23,49,"black")
-};
-
-function moveSnaker2(x,y){
- // setTimeout(function(){paintSnake2(x,y,"#9c9");
- // },600);
-    //paintSnake1(23,23,"#9c9");
-    //paintSnake1(23,49,"black");
-    setTimeout(function(){ paintSnake1(x-12,y+13,"#9c9")},400);
- setTimeout(function(){ paintSnake2(x+26,y+26,"black")},800);
-};
-
-function moveSnakef1(x,y){
-setTimeout(function(){paintSnake1(x,y,"#9c9")},200);
-//paintSnake1.hide();
-// setTimeout?
-setTimeout(function(){paintSnake1(x+26,y,"black")},400);
-//callbacks.fire(10,10, "black");
-  // paintSnake1(36,10);
-};
-//moveSnakef1(10,10);
-
-function moveSnakef2(x,y){
-  setTimeout(function(){paintSnake2(x,y,"#9c9")},600);
-  setTimeout(function(){paintSnake2(x+26,y,"black")},800);
-};
-
-
-
-
-
-function changeRight(){
-
- //paintSnake1(23,23,"black");
- //paintSnake1(23,49,"black");
- //paintSnake2(11,36,"black");
- //paintSnake2(11,62,"black");
- paintSnake1(x+26,y,"#9c9");
- moveSnaker1(i,10);
-//moveSnaker2(i+1,j+13);
-//var countx = 10; 
- j = j+ 26;
-//moveRight2(); 
-//for (var z=0; z<14;z++){
-// time = time + 2000;
-// moveRight2();
-// countx = countx + 26;
+//function moveForward(x,y){
+//  //setTimeout(function(){paintSnake1(x+13,y,"#9c9")},200);
+//  setTimeout(function(){paintSnake2(x+26,y,"#9c9")},800);
+// setTimeout(function(){ paintSnake1(x+26,y+13,"black")},400);
+// //paintSnake1(23,23,"#9c9");
+//    //paintSnake1(23,49,"black")
 //};
-//return countx;
-};
 
-function moveRight(){
-moveSnaker1(i,j);
-moveSnaker2(i-12,j);
-j = j+ 13;
-};
-//moveRight();
+//function moveSnaker2(x,y){
+// // setTimeout(function(){paintSnake2(x,y,"#9c9");
+// // },600);
+//    //paintSnake1(23,23,"#9c9");
+//    //paintSnake1(23,49,"black");
+//    setTimeout(function(){ paintSnake1(x-12,y+13,"#9c9")},400);
+// setTimeout(function(){ paintSnake2(x+26,y+26,"black")},800);
+//};
+
+//function moveSnakef1(x,y){
+//setTimeout(function(){paintSnake1(x,y,"#9c9")},200);
+////paintSnake1.hide();
+//// setTimeout?
+//setTimeout(function(){paintSnake1(x+26,y,"black")},400);
+////callbacks.fire(10,10, "black");
+//  // paintSnake1(36,10);
+//};
+////moveSnakef1(10,10);
+//
+//function moveSnakef2(x,y){
+//  setTimeout(function(){paintSnake2(x,y,"#9c9")},600);
+//  setTimeout(function(){paintSnake2(x+26,y,"black")},800);
+//};
+
+
+
+
+
+//function changeRight(){
+//
+// //paintSnake1(23,23,"black");
+// //paintSnake1(23,49,"black");
+// //paintSnake2(11,36,"black");
+// //paintSnake2(11,62,"black");
+// paintSnake1(x+26,y,"#9c9");
+// moveSnaker1(i,10);
+////moveSnaker2(i+1,j+13);
+////var countx = 10; 
+// j = j+ 26;
+////moveRight2(); 
+////for (var z=0; z<14;z++){
+//// time = time + 2000;
+//// moveRight2();
+//// countx = countx + 26;
+////};
+////return countx;
+//};
+//
+//function moveRight(){
+//moveSnaker1(i,j);
+//moveSnaker2(i-12,j);
+//j = j+ 13;
+//};
+////moveRight();
 //moveSnakef2(11,10);
-function moveForward(){
-//for (var i=10; i < 460; i=i+10){
-  //do {
-    // 1. Paint 1st and 2nd cell at the same time.
-    //2. Delete 1st cell and put it to 3rd cell with moveSnakef1.
-    //3. Delete 2nd cell and put it to 4th cell with moveSnakef2.  
-  moveSnakef1(i,10);
-  moveSnakef2(i+1,10);
- i = i +26;
-     };
+
+
  // var countx = 10;
   //moveForward2();
  
@@ -297,8 +276,42 @@ function moveForward(){
 //  console.log(snakearray[0]);
 //}
 //snake();
+//function stopForward(){
+//  
+//    setInterval(ctx.clearRect( 0, 0, $("#gameboard")[0].width, $("#gameboard")[0].h//eight),1000);
+////if (1===1){
+////return break;}
+//  //var moveF= setTimeout(moveForward,0);
+//  //clearTimeout(moveF);
+//  //console.log("Stop");
+//  //moveForward();
+//  //break;
+//};
+//
+//function stopRight(){
+//  var moveF= setTimeout(moveRight,0);
+//  clearTimeout(moveF);
+//  console.log("Stop");
+//  //moveForward();
+//  //break;
+//};
+// console.log(clearTimeout(setTimeout(moveForward(),0)));
+// Why on earth can't I use jQuery on my gameboard ????
+// What the heck is going on here????
 
 
+
+//function Snake() {
+//  var length = 30;
+//  snake = [];
+//   // This function put the snake on screen, but it is invisible. That's why I //have to paint it.
+//    
+//  for (var i = 0; i<=length; i = i+10)
+//    snake.push({x: i, y: 100});
+//  }
+//  Snake();
+
+// My snake gets longer. Actually I'm also a snake. Haha. Well, my horoscope sign;
 
 //End of document ready.
 });
