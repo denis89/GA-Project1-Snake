@@ -8,8 +8,7 @@
 
 $(document).ready(function(){
 
-// Function of the buttons.
-// keypress() doesn't work. Haha. 
+
 // That's weird. The gameboard has to be an object.
     var ctx = $("#gameboard")[0].getContext("2d");
     var w = $("#gameboard").width();
@@ -18,6 +17,8 @@ $(document).ready(function(){
 var x=10;
 var y = 23;
 
+// Function of the buttons.
+// keypress() doesn't work. Haha. 
 function button (){
 
   $("body").keydown(function(e) {
@@ -66,38 +67,59 @@ function level (won){
 
 
 function paintSnake(x,y,color){
-  // 1st cell of the snake.Color black
   ctx.fillStyle = color;
   ctx.fillRect(x,y,10,10);
-
-  //ctx.strokeStyle = color;
-  //ctx.strokeRect(x,y,10,10);  
- // return x; 
 }
 paintSnake(10,10,"black");
-paintSnake(21,10,"black");
+//paintSnake(21,10,"black");
 
-function moveForward(){
-//for (var i=10; i < 460; i=i+10){
-  //do {
-    // 1. Paint 1st and 2nd cell at the same time.
-    //2. Delete 1st cell and put it to 3rd cell with moveSnakef1.
-    //3. Delete 2nd cell and put it to 4th cell with moveSnakef2.  
+function paintFood(x,y,color){
+  ctx.fillStyle = color;
+  ctx.fillRect(x,y,10,10);
+  return x;
+}
+paintFood(249,10,"blue");
+
+
+
+function moveForward(){ 
   paintSnake(x,10,"#9c9");
   paintSnake(x+13,10,"black");
  x = x +13;
+ return x;
      };
 
 function changeRight(){
-//for (var i=10; i < 460; i=i+10){
+
+  paintSnake(x,10,"#9c9");
+  paintSnake(x,y-10,"#9c9");
+  paintSnake(x,y,"black");
+ y = y +10;
+ return y;
+     };
+
+
+if(moveForward() > paintFood()){
+  alert("Game Over");
+}
+
+
+
+
+
+
+
+     //function changeRight(){
+      //for (var i=10; i < 460; i=i+10){
   //do {
     // 1. Paint 1st and 2nd cell at the same time.
     //2. Delete 1st cell and put it to 3rd cell with moveSnakef1.
     //3. Delete 2nd cell and put it to 4th cell with moveSnakef2.  
-  paintSnake(x+13,10,"#9c9");
-  paintSnake(x,y+13,"black");
- y = y +13;
-     };
+    //}
+
+//if ( changeRight()> 300){
+//  alert("Game Over");
+//}
      //moveForward();
 //paintSnake1(23,23,"black");
 //paintSnake1(23,49,"black");
