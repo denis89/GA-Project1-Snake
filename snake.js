@@ -14,27 +14,30 @@ $(document).ready(function(){
     var ctx = $("#gameboard")[0].getContext("2d");
     var w = $("#gameboard").width();
   var h = $("#gameboard").height();
+  var time = 2000;
+var i=10;
+var j = 23;
 
 
-function stopForward(){
-  
-    setInterval(ctx.clearRect( 0, 0, $("#gameboard")[0].width, $("#gameboard")[0].height),1000);
-//if (1===1){
-//return break;}
-  //var moveF= setTimeout(moveForward,0);
-  //clearTimeout(moveF);
-  //console.log("Stop");
-  //moveForward();
-  //break;
-};
-
-function stopRight(){
-  var moveF= setTimeout(moveRight,0);
-  clearTimeout(moveF);
-  console.log("Stop");
-  //moveForward();
-  //break;
-};
+//function stopForward(){
+//  
+//    setInterval(ctx.clearRect( 0, 0, $("#gameboard")[0].width, $("#gameboard")[0].h//eight),1000);
+////if (1===1){
+////return break;}
+//  //var moveF= setTimeout(moveForward,0);
+//  //clearTimeout(moveF);
+//  //console.log("Stop");
+//  //moveForward();
+//  //break;
+//};
+//
+//function stopRight(){
+//  var moveF= setTimeout(moveRight,0);
+//  clearTimeout(moveF);
+//  console.log("Stop");
+//  //moveForward();
+//  //break;
+//};
 // console.log(clearTimeout(setTimeout(moveForward(),0)));
 function button (){
 
@@ -47,7 +50,8 @@ function button (){
     else if (e.which =="39"){
       console.log("right");
      //setTimeout(moveForward(),500);
-      moveRight();
+      changeRight();
+      //moveRight();
     }
     
     else if (e.which =="38")
@@ -98,7 +102,7 @@ function Snake() {
   Snake();
 
 // My snake gets longer. Actually I'm also a snake. Haha. Well, my horoscope sign.
-function paintSnake1(x,y,color){
+function paintSnake(x,y,color){
   // 1st cell of the snake.Color black
   ctx.fillStyle = color;
   ctx.fillRect(x,y,10,10);
@@ -106,8 +110,8 @@ function paintSnake1(x,y,color){
   //ctx.strokeRect(x,y,10,10);  
  // return x; 
 }
-paintSnake1(10,10,"black");
-
+paintSnake(10,10,"black");
+paintSnake(21,10,"black");
 //paintSnake1(23,23,"black");
 //paintSnake1(23,49,"black");
 
@@ -116,15 +120,15 @@ paintSnake1(10,10,"black");
 
 // paintSnake2 ???
 
-function paintSnake2(x,y,color){
-  // Second Cell of the snake.Color black
-  ctx.fillStyle = color;
-   ctx.fillRect(12+x,y,10,10);
-  //ctx.strokeStyle = color;
-  //ctx.strokeRect(12+x,y,10,10);
- // return x;
-}
-paintSnake2(11,10,"black");
+//function paintSnake2(x,y,color){
+//  // Second Cell of the snake.Color black
+//  ctx.fillStyle = color;
+//   ctx.fillRect(12+x,y,10,10);
+//  //ctx.strokeStyle = color;
+//  //ctx.strokeRect(12+x,y,10,10);
+// // return x;
+//}
+//paintSnake2(11,10,"black");
 //paintSnake2(11,36,"black");
 //paintSnake2(11,62,"black");
 
@@ -133,19 +137,20 @@ paintSnake2(11,10,"black");
 
 // A snake is an array in this file. Just put the start box of the array in to the end box to make the snake move.
 function moveSnaker1(x,y){
-  setTimeout(function(){paintSnake1(x+26,y,"#9c9")},200);
- setTimeout(function(){ paintSnake1(x,y+26,"black")},400);
+  //setTimeout(function(){paintSnake1(x+13,y,"#9c9")},200);
+  setTimeout(function(){paintSnake2(x+26,y,"#9c9")},800);
+ setTimeout(function(){ paintSnake1(x+26,y+13,"black")},400);
  //paintSnake1(23,23,"#9c9");
-    //paintSnake1(23,49,"black");
+    //paintSnake1(23,49,"black")
 };
 
 function moveSnaker2(x,y){
-  setTimeout(function(){
+ // setTimeout(function(){paintSnake2(x,y,"#9c9");
+ // },600);
     //paintSnake1(23,23,"#9c9");
     //paintSnake1(23,49,"black");
-    paintSnake2(x,y,"#9c9");
-  },600);
- setTimeout(function(){ paintSnake2(x,y+26,"black")},800);
+    setTimeout(function(){ paintSnake1(x-12,y+13,"#9c9")},400);
+ setTimeout(function(){ paintSnake2(x+26,y+26,"black")},800);
 };
 
 function moveSnakef1(x,y){
@@ -165,18 +170,17 @@ function moveSnakef2(x,y){
 
 
 
-var time = 2000;
-var i=10;
-var j = 23;
 
-function moveRight(){
+
+function changeRight(){
 
  //paintSnake1(23,23,"black");
  //paintSnake1(23,49,"black");
  //paintSnake2(11,36,"black");
  //paintSnake2(11,62,"black");
+ paintSnake1(x+26,y,"#9c9");
  moveSnaker1(i,10);
-moveSnaker2(i+1,j+13);
+//moveSnaker2(i+1,j+13);
 //var countx = 10; 
  j = j+ 26;
 //moveRight2(); 
@@ -186,6 +190,12 @@ moveSnaker2(i+1,j+13);
 // countx = countx + 26;
 //};
 //return countx;
+};
+
+function moveRight(){
+moveSnaker1(i,j);
+moveSnaker2(i-12,j);
+j = j+ 13;
 };
 //moveRight();
 //moveSnakef2(11,10);
