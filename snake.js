@@ -46,7 +46,7 @@ function button (){
 
     else if (e.which =="39"){
       console.log("right");
-     setTimeout(moveForward(),500);
+     //setTimeout(moveForward(),500);
       moveRight();
     }
     
@@ -104,9 +104,10 @@ function paintSnake1(x,y,color){
   ctx.fillRect(x,y,10,10);
   //ctx.strokeStyle = color;
   //ctx.strokeRect(x,y,10,10);  
-  return x; 
+ // return x; 
 }
 paintSnake1(10,10,"black");
+
 //paintSnake1(23,23,"black");
 //paintSnake1(23,49,"black");
 
@@ -121,7 +122,7 @@ function paintSnake2(x,y,color){
    ctx.fillRect(12+x,y,10,10);
   //ctx.strokeStyle = color;
   //ctx.strokeRect(12+x,y,10,10);
-  return x;
+ // return x;
 }
 paintSnake2(11,10,"black");
 //paintSnake2(11,36,"black");
@@ -132,14 +133,20 @@ paintSnake2(11,10,"black");
 
 // A snake is an array in this file. Just put the start box of the array in to the end box to make the snake move.
 function moveSnaker1(x,y){
-  moveSnaker1TimeOut = setTimeout(function(){
-    //paintSnake1(23,23,"#9c9");
+  setTimeout(function(){paintSnake1(x+26,y,"#9c9")},200);
+ setTimeout(function(){ paintSnake1(x,y+26,"black")},400);
+ //paintSnake1(23,23,"#9c9");
     //paintSnake1(23,49,"black");
-    paintSnake1(x,x,"#9c9");
-  },500);
- setTimeout(function(){ paintSnake1(x,y+26,"black")},1000);
 };
 
+function moveSnaker2(x,y){
+  setTimeout(function(){
+    //paintSnake1(23,23,"#9c9");
+    //paintSnake1(23,49,"black");
+    paintSnake2(x,y,"#9c9");
+  },600);
+ setTimeout(function(){ paintSnake2(x,y+26,"black")},800);
+};
 
 function moveSnakef1(x,y){
 setTimeout(function(){paintSnake1(x,y,"#9c9")},200);
@@ -156,40 +163,32 @@ function moveSnakef2(x,y){
   setTimeout(function(){paintSnake2(x+26,y,"black")},800);
 };
 
-function moveSnaker2(x,y){
-  setTimeout(function(){
-    //paintSnake1(23,23,"#9c9");
-    //paintSnake1(23,49,"black");
-    paintSnake1(x,x,"#9c9");
-  },1500);
- setTimeout(function(){ paintSnake1(x,y+26,"black")},2000);
-};
+
 
 var time = 2000;
 var i=10;
 var j = 23;
 
 function moveRight(){
-  console.log('moving right');
+
  //paintSnake1(23,23,"black");
  //paintSnake1(23,49,"black");
  //paintSnake2(11,36,"black");
  //paintSnake2(11,62,"black");
-moveSnaker1(23,j);
-moveSnaker2(11,j+13);
-var countx = 10; 
- 
- moveRight2(); 
- for (var z=0; z<14;z++){
-  time = time + 2000;
-  moveRight2();
-  countx = countx + 26;
- };
- return countx;
+ moveSnaker1(i,10);
+moveSnaker2(i+1,j+13);
+//var countx = 10; 
+ j = j+ 26;
+//moveRight2(); 
+//for (var z=0; z<14;z++){
+// time = time + 2000;
+// moveRight2();
+// countx = countx + 26;
+//};
+//return countx;
 };
 //moveRight();
 //moveSnakef2(11,10);
-
 function moveForward(){
 //for (var i=10; i < 460; i=i+10){
   //do {
@@ -198,8 +197,9 @@ function moveForward(){
     //3. Delete 2nd cell and put it to 4th cell with moveSnakef2.  
   moveSnakef1(i,10);
   moveSnakef2(i+1,10);
- 
-  var countx = 10;
+ i = i +26;
+     };
+ // var countx = 10;
   //moveForward2();
  
 // for (var z=0; z<14;z++){
@@ -211,37 +211,37 @@ function moveForward(){
 //  
 //     if ( countx === 374) {
 //    console.log("Game Over");
- 
 //};
 // };
  // End function.
-    };
+
     //moveForward();
 
 
-function moveForward2(){
-setTimeout(function(time){
-// 4. Delete 3rd cell-> 5th cell with moveSnakef1.
-// 5. Delete 4th cell - 6th cell with moveSnakef2. 
-    i = i+ 26;
-    moveSnakef1(i,10);
-    moveSnakef2(i+1,10);
-    },time);
-};
 
-function moveRight2(){
-setTimeout(function(time){
-// 4. Delete 3rd cell-> 5th cell with moveSnakef1.
-// 5. Delete 4th cell - 6th cell with moveSnakef2. 
+//function moveForward2(){
+//setTimeout(function(time){
+//// 4. Delete 3rd cell-> 5th cell with moveSnakef1.
+//// 5. Delete 4th cell - 6th cell with moveSnakef2. 
+//    i = i+ 26;
+//    moveSnakef1(i,10);
+//    moveSnakef2(i+1,10);
+//    },time);
+//};
+//
+//function moveRight2(){
+//setTimeout(function(time){
+//// 4. Delete 3rd cell-> 5th cell with moveSnakef1.
+//// 5. Delete 4th cell - 6th cell with moveSnakef2. 
 // paintSnake1(23,23,"black");
   //paintSnake1(23,49,"black");
   //paintSnake2(11,36,"black");
   //paintSnake2(11,62,"black");
-    i = i+ 26;
-    moveSnakef1(23,i);
-    moveSnakef2(11,i+13);
-    },time);
-};
+//   i = i+ 26;
+//   moveSnakef1(23,i);
+//   moveSnakef2(11,i+13);
+//   },time);
+//;
 
 
 
