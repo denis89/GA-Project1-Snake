@@ -5,32 +5,56 @@
 // Next step is to make the snake move.
 // Wait a sec. Better to make it longer than 1 dot.
 
+
 $(document).ready(function(){
 
 // Function of the buttons.
 // keypress() doesn't work. Haha. 
-function button (){$("body").keydown(function(e) {
+
+
+function stopForward(){
+  var moveF= setTimeout(moveForward(),0);
+  clearTimeout(moveF);
+  console.log("Stop");
+  //moveForward();
+  //break;
+};
+
+function stopRight(){
+  var moveF= setTimeout(moveRight(),0);
+  clearTimeout(moveF);
+  console.log("Stop");
+  //moveForward();
+  //break;
+};
+// console.log(clearTimeout(setTimeout(moveForward(),0)));
+function button (){
+
+  $("body").keydown(function(e) {
  
- if (e.which == "37") 
-  {console.log("left");}
+    if (e.which == "37"){
+      console.log("left");
+    }
 
-else if (e.which =="39")
-  {console.log("right");
-moveRight();}
-
-else if (e.which =="38")
-  {console.log("up");}
-
-else if (e.which =="40")
-  {console.log("down");}
-
-else if (e.which =="32")
-  {console.log("pause");}
-
-else if (e.which =="13")
-  {console.log("play!");}
-
-});
+    else if (e.which =="39"){
+      console.log("right");
+      stopRight();
+    }
+    
+    else if (e.which =="38")
+      {console.log("forward");
+  stopForward();}
+    
+    else if (e.which =="40")
+      {console.log("down");}
+    
+    else if (e.which =="32")
+      {console.log("pause");}
+    
+    else if (e.which =="13")
+      {console.log("play!");}
+    
+    });
 };
 button();
 
@@ -57,12 +81,12 @@ function level (won){
   var h = $("#gameboard").height();
 
 function Snake() {
-    var length = 30;
-    snake = [];
+  var length = 30;
+  snake = [];
    // This function put the snake on screen, but it is invisible. That's why I have to paint it.
     
-for (var i = 0; i<=length; i = i+10)
-     snake.push({x: i, y: 100});
+  for (var i = 0; i<=length; i = i+10)
+    snake.push({x: i, y: 100});
   }
   Snake();
 
@@ -101,7 +125,7 @@ paintSnake2(11,10,"black");
 
 // A snake is an array in this file. Just put the start box of the array in to the end box to make the snake move.
 function moveSnaker1(x,y){
-  setTimeout(function(){
+  moveSnaker1TimeOut = setTimeout(function(){
     //paintSnake1(23,23,"#9c9");
     //paintSnake1(23,49,"black");
     paintSnake1(x,x,"#9c9");
@@ -139,6 +163,7 @@ var i=10;
 var j = 23;
 
 function moveRight(){
+  console.log('moving right');
  //paintSnake1(23,23,"black");
  //paintSnake1(23,49,"black");
  //paintSnake2(11,36,"black");
@@ -155,10 +180,11 @@ var countx = 10;
  };
  return countx;
 };
-moveRight();
+//moveRight();
 //moveSnakef2(11,10);
 
 function moveForward(){
+  console.log("move");
 //for (var i=10; i < 460; i=i+10){
   //do {
     // 1. Paint 1st and 2nd cell at the same time.
@@ -170,6 +196,7 @@ function moveForward(){
   var countx = 10;
   console.log(countx); 
   moveForward2();
+ 
  for (var z=0; z<14;z++){
   time = time + 2000;
   moveForward2();
@@ -183,7 +210,7 @@ if ( countx === 374) {
  };
  // End function.
     };
-//moveForward();
+
 
 function moveForward2(){
 setTimeout(function(time){
