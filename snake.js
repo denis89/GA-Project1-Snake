@@ -16,6 +16,7 @@ $(document).ready(function(){
   var time = 2000;
 var x=10;
 var y = 23;
+var b = 20;
 
 // Function of the buttons.
 // keypress() doesn't work. Haha. 
@@ -36,8 +37,15 @@ function button (){
     
     else if (e.which =="38")
       {console.log("forward");
-      moveForward();}
-      //moveRight();}
+      moveForward();
+      
+      b = b + 20;
+      if (b > 249){
+        alert("Game Over");
+      }
+      console.log(b);
+      }
+     
     
     else if (e.which =="40")
       {console.log("down");}
@@ -99,11 +107,12 @@ function changeRight(){
      };
 
 
-if(moveForward() > paintFood()){
+if( b > paintFood(249,10,"blue")){
   alert("Game Over");
 }
-
-
+console.log(moveForward());
+console.log(paintFood(249,10,"blue"));
+});
 
 
 
@@ -336,4 +345,3 @@ if(moveForward() > paintFood()){
 // My snake gets longer. Actually I'm also a snake. Haha. Well, my horoscope sign;
 
 //End of document ready.
-});
