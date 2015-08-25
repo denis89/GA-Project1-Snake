@@ -40,9 +40,11 @@ function button (){
     } else if (e.which == "39") {
       console.log("right");
      //setTimeout(moveRight(),500);
-     stopDown();
-      reRight();
-      //moveRight();
+      //stopDown();
+      //reRight();
+
+      moveRight();
+      console.log(moveRight());
     } else if (e.which == "38") {
       console.log("up");
       moveUp();
@@ -85,14 +87,18 @@ function level (won){
 function paintSnake(x,y,color){
   ctx.fillStyle = color;
   ctx.fillRect(x,y,10,10);
+  var returnArr = [x,y];
+  return returnArr;
 }
-paintSnake(10,10,"black");
+console.log(paintSnake(10,10,"black"));
 //paintSnake(21,10,"black");
 
 function paintFood(x,y,color){
   ctx.fillStyle = color;
   ctx.fillRect(x,y,10,10);
   // It's not possible to return x and return y.
+  var returnArr = [x,y];
+  return returnArr;
   
 }
 console.log(paintFood(235,10,"blue"));
@@ -142,6 +148,8 @@ paintSnake(x-10,y-10,"#9c9");
 paintSnake(x,y-10,"black");
 
   x = x +10;
+  var returnArr = [x,y];
+  return returnArr;
 }
 
 function moveLeft(){
