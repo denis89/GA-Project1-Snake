@@ -23,28 +23,25 @@ var b = 20;
 function button (){
 
   $("body").keydown(function(e) {
- 
-    if (e.which == "37"){
+    if (e.which == "40") {
+      console.log("down 40");
+      moveDown();
+      //if (e.which == "39") {
+        //console.log("RightForward");
+        //moveRightForward();
+      //}
+    } else if (e.which == "37") {
       console.log("left");
-
-    }
-
-    if (e.which =="39"){
+    } else if (e.which == "39") {
       console.log("right");
-     //setTimeout(moveForward(),500);
-      changeRight(); 
-      if(e.which =="38") {
-        console.log("RightForward");moveRightForward();}
+     //setTimeout(moveRight(),500);
+     moveRight();
       //moveRight();
-    }
-
-    
-     if (e.which =="38")
-      {console.log("forward");
-      moveForward();
-      
+    } else if (e.which == "38") {
+      console.log("forward");
+      moveUp();
       b = b + 14;
-      if (b > 249){
+      if (b > 249) {
         $("#score").html("Score: 100");
          paintFood(300,10,"blue");
       if (b>325){
@@ -53,18 +50,13 @@ function button (){
       }
       console.log(b);
       }
-     
-    
-    else if (e.which =="40")
-      {console.log("down");
-      moveBackward();
-  }
-    
-    else if (e.which =="32")
-      {console.log("pause");}
-    
-    else if (e.which =="13")
-      {console.log("play!");}
+    else if (e.which =="32") {
+      console.log("pause");
+    }
+    else if (e.which =="13") {
+      console.log("play!");
+      moveRightForward();
+    }
     
     });
 };
@@ -100,21 +92,16 @@ paintFood(235,10,"blue");
 
 
 
-function moveForward(){ 
-  paintSnake(x,10,"#9c9");
-  paintSnake(x+13,10,"black");
- x = x +13;
- return x;
-     };
 
-function moveBackward(){ 
+
+function moveUp(){ 
   paintSnake(x,10,"#9c9");
   paintSnake(x-13,10,"black");
  x = x - 13;
  return x;
      };
 
-function changeRight(){
+function moveDown(){
 
   paintSnake(x,10,"#9c9");
   paintSnake(x,y-10,"#9c9");
@@ -123,30 +110,37 @@ function changeRight(){
  return y;
      };
 
-function moveRightForward(){
+function moveRight(){
+//paintSnake(x,y,"black");
+paintSnake(x-13,y,"#9c9");
 paintSnake(x,y,"black");
-//paintSnake(x,10,"#9c9");
-paintSnake(x+13,y,"black");
 
   x = x +13;
 }
 //
-
+});
 
 
 
 //if( b > paintFood(249,10,"blue")){
 //  alert("Game Over");
 //}
-//console.log(moveForward());
+//console.log(moveRight());
 //console.log(paintFood(249,10,"blue"));
-});
 
 
 
 
 
-     //function changeRight(){
+
+
+//function moveRight(){ 
+//  paintSnake(x,10,"#9c9");
+//  paintSnake(x+13,10,"black");
+// x = x +13;
+// return x;
+//     };
+     //function moveDown(){
       //for (var i=10; i < 460; i=i+10){
   //do {
     // 1. Paint 1st and 2nd cell at the same time.
@@ -154,10 +148,10 @@ paintSnake(x+13,y,"black");
     //3. Delete 2nd cell and put it to 4th cell with moveSnakef2.  
     //}
 
-//if ( changeRight()> 300){
+//if ( moveDown()> 300){
 //  alert("Game Over");
 //}
-     //moveForward();
+     //moveRight();
 //paintSnake1(23,23,"black");
 //paintSnake1(23,49,"black");
 
@@ -182,7 +176,7 @@ paintSnake(x+13,y,"black");
 //paintSnake2(0);
 
 // A snake is an array in this file. Just put the start box of the array in to the end box to make the snake move.
-//function moveForward(x,y){
+//function moveRight(x,y){
 //  //setTimeout(function(){paintSnake1(x+13,y,"#9c9")},200);
 //  setTimeout(function(){paintSnake2(x+26,y,"#9c9")},800);
 // setTimeout(function(){ paintSnake1(x+26,y+13,"black")},400);
@@ -218,7 +212,7 @@ paintSnake(x+13,y,"black");
 
 
 
-//function changeRight(){
+//function moveDown(){
 //
 // //paintSnake1(23,23,"black");
 // //paintSnake1(23,49,"black");
@@ -248,11 +242,11 @@ paintSnake(x+13,y,"black");
 
 
  // var countx = 10;
-  //moveForward2();
+  //moveRight2();
  
 // for (var z=0; z<14;z++){
 //  time = time + 2000;
-//  moveForward2();
+//  moveRight2();
 //
 //  countx = countx + 26;
 //  //////Wall condition/////////
@@ -263,11 +257,11 @@ paintSnake(x+13,y,"black");
 // };
  // End function.
 
-    //moveForward();
+    //moveRight();
 
 
 
-//function moveForward2(){
+//function moveRight2(){
 //setTimeout(function(time){
 //// 4. Delete 3rd cell-> 5th cell with moveSnakef1.
 //// 5. Delete 4th cell - 6th cell with moveSnakef2. 
@@ -340,10 +334,10 @@ paintSnake(x+13,y,"black");
 //    setInterval(ctx.clearRect( 0, 0, $("#gameboard")[0].width, $("#gameboard")[0].h//eight),1000);
 ////if (1===1){
 ////return break;}
-//  //var moveF= setTimeout(moveForward,0);
+//  //var moveF= setTimeout(moveRight,0);
 //  //clearTimeout(moveF);
 //  //console.log("Stop");
-//  //moveForward();
+//  //moveRight();
 //  //break;
 //};
 //
@@ -351,10 +345,10 @@ paintSnake(x+13,y,"black");
 //  var moveF= setTimeout(moveRight,0);
 //  clearTimeout(moveF);
 //  console.log("Stop");
-//  //moveForward();
+//  //moveRight();
 //  //break;
 //};
-// console.log(clearTimeout(setTimeout(moveForward(),0)));
+// console.log(clearTimeout(setTimeout(moveRight(),0)));
 // Why on earth can't I use jQuery on my gameboard ????
 // What the heck is going on here????
 
