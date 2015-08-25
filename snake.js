@@ -29,18 +29,17 @@ function button (){
 
     }
 
-    else if (e.which =="39"){
+    if (e.which =="39"){
       console.log("right");
      //setTimeout(moveForward(),500);
-      changeRight();
-     //  if (e.which =="38"){
-     //   moveRightForward();
-     // }
-
+      changeRight(); 
+      if(e.which =="38") {
+        console.log("RightForward");moveRightForward();}
       //moveRight();
     }
+
     
-    else if (e.which =="38")
+     if (e.which =="38")
       {console.log("forward");
       moveForward();
       
@@ -52,10 +51,6 @@ function button (){
          $("#score").html("Score: 200");
          paintFood(350,10,"blue");}
       }
-
-
-      
-
       console.log(b);
       }
      
@@ -128,13 +123,13 @@ function changeRight(){
  return y;
      };
 
-//function moveRightForward(){
-//paintSnake(x,y,"black");
-////paintSnake(x,10,"#9c9");
-//paintSnake(x+13,10,"black");
-//
-//  x = x +13;
-//}
+function moveRightForward(){
+paintSnake(x,y,"black");
+//paintSnake(x,10,"#9c9");
+paintSnake(x+13,y,"black");
+
+  x = x +13;
+}
 //
 
 
