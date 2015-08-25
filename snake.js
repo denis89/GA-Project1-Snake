@@ -26,12 +26,17 @@ function button (){
  
     if (e.which == "37"){
       console.log("left");
+
     }
 
     else if (e.which =="39"){
       console.log("right");
      //setTimeout(moveForward(),500);
       changeRight();
+     //  if (e.which =="38"){
+     //   moveRightForward();
+     // }
+
       //moveRight();
     }
     
@@ -48,7 +53,7 @@ function button (){
          paintFood(350,10,"blue");}
       }
 
-      
+
       
 
       console.log(b);
@@ -56,7 +61,9 @@ function button (){
      
     
     else if (e.which =="40")
-      {console.log("down");}
+      {console.log("down");
+      moveBackward();
+  }
     
     else if (e.which =="32")
       {console.log("pause");}
@@ -86,7 +93,7 @@ function paintSnake(x,y,color){
   ctx.fillStyle = color;
   ctx.fillRect(x,y,10,10);
 }
-paintSnake(10,10,"black");
+paintSnake(20,10,"black");
 //paintSnake(21,10,"black");
 
 function paintFood(x,y,color){
@@ -105,6 +112,13 @@ function moveForward(){
  return x;
      };
 
+function moveBackward(){ 
+  paintSnake(x,10,"#9c9");
+  paintSnake(x-13,10,"black");
+ x = x - 13;
+ return x;
+     };
+
 function changeRight(){
 
   paintSnake(x,10,"#9c9");
@@ -113,6 +127,17 @@ function changeRight(){
  y = y +10;
  return y;
      };
+
+//function moveRightForward(){
+//paintSnake(x,y,"black");
+////paintSnake(x,10,"#9c9");
+//paintSnake(x+13,10,"black");
+//
+//  x = x +13;
+//}
+//
+
+
 
 
 //if( b > paintFood(249,10,"blue")){
