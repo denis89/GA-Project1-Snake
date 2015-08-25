@@ -15,7 +15,7 @@ $(document).ready(function(){
   var h = $("#gameboard").height();
   var time = 2000;
 var x=10;
-var y = 23;
+var y = 20;
 var b = 20;
 var rRight;
 var rDown;
@@ -88,7 +88,7 @@ function paintSnake(x,y,color){
   ctx.fillStyle = color;
   ctx.fillRect(x,y,10,10);
   var returnArr = [x,y];
-  return returnArr;
+  return returnArr.toString();
 }
 console.log(paintSnake(10,10,"black"));
 //paintSnake(21,10,"black");
@@ -98,7 +98,7 @@ function paintFood(x,y,color){
   ctx.fillRect(x,y,10,10);
   // It's not possible to return x and return y.
   var returnArr = [x,y];
-  return returnArr;
+  return returnArr.toString();
   
 }
 console.log(paintFood(235,10,"blue"));
@@ -148,8 +148,8 @@ paintSnake(x-10,y-10,"#9c9");
 paintSnake(x,y-10,"black");
 
   x = x +10;
-  var returnArr = [x,y];
-  return returnArr;
+  var returnArr = [x-15,y-10];
+  return returnArr.toString();
 }
 
 function moveLeft(){
@@ -160,6 +160,8 @@ paintSnake(x-10,y-10,"black");
   x = x - 10;
 }
 //
+
+//if (moveRight>)
 });
 
 //// End: Directions ////
