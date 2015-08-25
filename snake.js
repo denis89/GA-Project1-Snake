@@ -76,6 +76,13 @@ function score (won){
   {$("#score").html("Score: 100");}
 };
 
+// Increase the score of Food
+function updateFood(){
+  var food= 1;
+  $("#food").html("Amount of food: "+ food);
+  food ++;
+}
+
 // The level will increase if the snake is able to eat a certain amount of fruits.
 function level (won){
   var level = 1;
@@ -166,11 +173,14 @@ paintSnake(x-10,y-10,"black");
 function checkIfEaten() {
   // Thanks Jeremy.
   if ( moveRight() == paintFood(235,10,"blue") ){
-   alert("That was delicious!")
-  } else {
-    console.log("no match")
+   updateFood();
+   nextFood();
   }
-}
+};
+
+function nextFood(){
+
+};
 
 
 
