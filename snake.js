@@ -42,8 +42,7 @@ function button (){
      //setTimeout(moveRight(),500);
       //stopDown();
       //reRight();
-
-      moveRight();
+      moveRight();   
       console.log(moveRight());
     } else if (e.which == "38") {
       console.log("up");
@@ -87,18 +86,19 @@ function level (won){
 function paintSnake(x,y,color){
   ctx.fillStyle = color;
   ctx.fillRect(x,y,10,10);
-  var returnArr = [x,y];
+  var returnArr = [x-15,y-10];
   return returnArr.toString();
 }
-console.log(paintSnake(10,10,"black"));
+//console.log(paintSnake(10,10,"black"));
 //paintSnake(21,10,"black");
 
 function paintFood(x,y,color){
   ctx.fillStyle = color;
   ctx.fillRect(x,y,10,10);
   // It's not possible to return x and return y.
-  var returnArr = [x,y];
-  return returnArr.toString();
+  // So I'm using the array to locate the position instead.
+  var returnAr = [x,y];
+  return returnAr.toString();
   
 }
 console.log(paintFood(235,10,"blue"));
@@ -148,7 +148,7 @@ paintSnake(x-10,y-10,"#9c9");
 paintSnake(x,y-10,"black");
 
   x = x +10;
-  var returnArr = [x-15,y-10];
+  var returnArr = [x-5,y-10];
   return returnArr.toString();
 }
 
@@ -161,7 +161,15 @@ paintSnake(x-10,y-10,"black");
 }
 //
 
-//if (moveRight>)
+if ( moveRight() == paintFood(235,10,"blue") ){
+   alert("Food!")
+};
+
+if ("A" == "A"){
+  alert("Right comparison");
+}
+
+
 });
 
 //// End: Directions ////
