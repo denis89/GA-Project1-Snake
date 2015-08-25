@@ -19,7 +19,7 @@ var y = 23;
 var b = 20;
 var rRight;
 var rDown;
-
+//var array2dim= [][];
 
 // Function of the buttons.
 // keypress() doesn't work. Haha. 
@@ -28,7 +28,8 @@ function button (){
   $("body").keydown(function(e) {
     if (e.which == "40") {
       console.log("down");
-      moveDown();
+      stopRight();
+      reDown();
       //if (e.which == "39") {
         //console.log("Rightup");
         //moveRightup();
@@ -39,6 +40,7 @@ function button (){
     } else if (e.which == "39") {
       console.log("right");
      //setTimeout(moveRight(),500);
+     stopDown();
       reRight();
       //moveRight();
     } else if (e.which == "38") {
@@ -90,8 +92,8 @@ paintSnake(10,10,"black");
 function paintFood(x,y,color){
   ctx.fillStyle = color;
   ctx.fillRect(x,y,10,10);
-  return x;
-  return y;
+  // It's not possible to return x and return y.
+  
 }
 console.log(paintFood(235,10,"blue"));
 
@@ -99,43 +101,53 @@ console.log(paintFood(235,10,"blue"));
 
 function moveUp(){ 
  //paintSnake(x,10,"#9c9");
-  paintSnake(x+10,y+10,"#9c9");
-  paintSnake(x+10,y,"black");
+  paintSnake(x,y+10,"#9c9");
+  paintSnake(x,y,"black");
  y = y - 10;
  return y;
      };
 
 
 function reDown(){
-   rDown = setInterval(moveDown,500);
+   rDown = setInterval(moveDown,100);
+}
+
+function stopDown(){
+   clearInterval(rDown);
 }
 
 
 function moveDown(){
 
   //paintSnake(x+10,10,"#9c9");
-  paintSnake(x,y-10,"#9c9");
-  paintSnake(x,y,"black");
+  paintSnake(x-10,y-10,"#9c9");
+  paintSnake(x-10,y,"black");
  y = y +10;
  return y;
      };
 
 function reRight(){
-   rRight = setInterval(moveRight,500);
+   rRight = setInterval(moveRight,100);
 }
+
+function stopRight(){
+   clearInterval(rRight);
+}
+
+
 
 function moveRight(){
 //paintSnake(x,y,"black");
-paintSnake(x,y-10,"#9c9");
-paintSnake(x+10,y-10,"black");
+paintSnake(x-10,y-10,"#9c9");
+paintSnake(x,y-10,"black");
 
   x = x +10;
 }
 
 function moveLeft(){
 //paintSnake(x,y,"black");
-paintSnake(x+10,y-10,"#9c9");
-paintSnake(x,y-10,"black");
+paintSnake(x,y-10,"#9c9");
+paintSnake(x-10,y-10,"black");
 
   x = x - 10;
 }
