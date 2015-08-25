@@ -39,10 +39,18 @@ function button (){
       {console.log("forward");
       moveForward();
       
-      b = b + 20;
+      b = b + 14;
       if (b > 249){
-        alert("Game Over");
+        $("#score").html("Score: 100");
+         paintFood(300,10,"blue");
+      if (b>325){
+         $("#score").html("Score: 200");
+         paintFood(350,10,"blue");}
       }
+
+      
+      
+
       console.log(b);
       }
      
@@ -86,7 +94,7 @@ function paintFood(x,y,color){
   ctx.fillRect(x,y,10,10);
   return x;
 }
-paintFood(249,10,"blue");
+paintFood(235,10,"blue");
 
 
 
@@ -107,11 +115,11 @@ function changeRight(){
      };
 
 
-if( b > paintFood(249,10,"blue")){
-  alert("Game Over");
-}
-console.log(moveForward());
-console.log(paintFood(249,10,"blue"));
+//if( b > paintFood(249,10,"blue")){
+//  alert("Game Over");
+//}
+//console.log(moveForward());
+//console.log(paintFood(249,10,"blue"));
 });
 
 
