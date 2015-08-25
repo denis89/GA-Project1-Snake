@@ -42,7 +42,8 @@ function button (){
      //setTimeout(moveRight(),500);
       //stopDown();
       //reRight();
-      moveRight();   
+      moveRight();
+      checkIfEaten(); 
       console.log(moveRight());
     } else if (e.which == "38") {
       console.log("up");
@@ -90,7 +91,7 @@ function paintSnake(x,y,color){
   return returnArr.toString();
 }
 //console.log(paintSnake(10,10,"black"));
-//paintSnake(21,10,"black");
+paintSnake(10,10,"black");
 
 function paintFood(x,y,color){
   ctx.fillStyle = color;
@@ -144,6 +145,7 @@ function stopRight(){
 
 function moveRight(){
 //paintSnake(x,y,"black");
+
 paintSnake(x-10,y-10,"#9c9");
 paintSnake(x,y-10,"black");
 
@@ -161,13 +163,15 @@ paintSnake(x-10,y-10,"black");
 }
 //
 
-if ( moveRight() == paintFood(235,10,"blue") ){
-   alert("Food!")
-};
-
-if ("A" == "A"){
-  alert("Right comparison");
+function checkIfEaten() {
+  // Thanks Jeremy.
+  if ( moveRight() == paintFood(235,10,"blue") ){
+   alert("That was delicious!")
+  } else {
+    console.log("no match")
+  }
 }
+
 
 
 });
