@@ -28,8 +28,10 @@ function button (){
   $("body").keydown(function(e) {
     if (e.which == "40") {
       console.log("down");
-      stopRight();
-      reDown();
+      //stopRight();
+      //reDown();
+      moveDown();
+      checkIfEatenD();
       //if (e.which == "39") {
         //console.log("Rightup");
         //moveRightup();
@@ -37,17 +39,20 @@ function button (){
     } else if (e.which == "37") {
       console.log("left");
       moveLeft();
+      checkIfEatenL();
+
     } else if (e.which == "39") {
       console.log("right");
      //setTimeout(moveRight(),500);
       //stopDown();
       //reRight();
       moveRight();
-      checkIfEaten(); 
+      checkIfEatenR(); 
       console.log(moveRight());
     } else if (e.which == "38") {
       console.log("up");
       moveUp();
+      checkIfEatenU();
       //b = b + 14;
       //if (b > 249) {
       //  $("#score").html("Score: 100");
@@ -169,18 +174,61 @@ paintSnake(x-10,y-10,"black");
   x = x - 10;
 }
 //
-
-function checkIfEaten() {
+//var comparison = moveRight() == paintFood(Math.random()*300,Math.random()*300,"blue");
+//var comparison = moveRight() == paintFood(235,10,"blue");
+function checkIfEatenR() {
   // Thanks Jeremy.
+  //paintFood(Math.random()*300,Math.random()*300,"blue")
+  // This works:  moveRight() == paintFood(235,10,"blue")
+  //moveRight == paintFood(235,10,"blue")
+  
   if ( moveRight() == paintFood(235,10,"blue") ){
+  console.log("Food updated.")
    updateFood();
+   console.log("Next food.")
    nextFood();
   }
 };
 
+function checkIfEatenD() {
+  // Thanks Jeremy.
+  if ( moveDown > paintFood ){
+  console.log("Food updated.")
+   updateFood();
+   console.log("Next food.")
+   nextFood();
+
+  };
+};
+
+function checkIfEatenL() {
+  // Thanks Jeremy.
+  if ( moveLeft > paintFood ){
+  console.log("Food updated.")
+   updateFood();
+   console.log("Next food.")
+   nextFood();
+
+  };
+};
+
+function checkIfEatenU() {
+  // Thanks Jeremy.
+  if ( moveRight > paintFood ){
+  console.log("Food updated.")
+   updateFood();
+   console.log("Next food.");
+   nextFood();
+
+  };
+};
+
 function nextFood(){
+  paintFood(Math.random()*300,Math.random()*300,"blue");
+ // paintFood(100,100,"blue");
 
 };
+//nextFood();
 
 
 
